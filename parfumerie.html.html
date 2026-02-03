@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      AURA — Guide Parfumerie Ultimate | Parfums Classiques, Niches &
+      Inspirations
+    </title>
+    <meta
+      name="description"
+      content="Découvrez notre guide ultime de parfumerie : parfums intemporels, classiques, niches, affordable et inspirations. Conseils d'expert pour trouver votre signature scent."
+    />
+    <meta
+      name="keywords"
+      content="parfum, parfumerie, parfums classiques, parfums niches, parfums pas cher, guide parfumerie, meilleurs parfums, parfums intemporels"
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://yoursite.com/" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Rajdhani:wght@300;400;500;600&family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --gold: #c9a84c;
+        --gold-light: #e8d48b;
+        --deep: #0a0a0f;
+        --card-bg: rgba(18, 18, 28, 0.85);
+        --accent-rose: #e06b8a;
+        --accent-cyan: #4dd9c0;
+        --accent-violet: #9b6dff;
+        --text-primary: #f0ece2;
+        --text-muted: #8a8694;
+        --radius: 18px;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--deep);
+        color: var(--text-primary);
+        font-family: "Rajdhani", sans-serif;
+        font-size: 17px;
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
+      }
+
+      /* ──── AMBIENT BACKGROUND ──── */
+      .ambient {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background: radial-gradient(
+            ellipse 80% 50% at 20% 20%,
+            rgba(154, 107, 255, 0.12) 0%,
+            transparent 60%
+          ),
+          radial-gradient(
+            ellipse 60% 40% at 80% 70%,
+            rgba(224, 107, 138, 0.1) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            ellipse 70% 45% at 50% 90%,
+            rgba(77, 217, 192, 0.08) 0%,
+            transparent 50%
+          );
+      }
+
+      /* ──── NOISE OVERLAY ──── */
+      .noise {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        opacity: 0.03;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      }
+
+      /* ──── SCROLLBAR ──── */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--deep);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(var(--accent-violet), var(--accent-rose));
+        border-radius: 3px;
+      }
+
+      /* ──── NAV ──── */
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 18px 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(10, 10, 15, 0.7);
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+        transition: padding 0.3s;
+      }
+      nav.scrolled {
+        padding: 10px 40px;
+      }
+      .logo {
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.6rem;
+        letter-spacing: 6px;
+        background: linear-gradient(
+          135deg,
+          var(--gold),
+          var(--gold-light),
+          var(--gold)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+      }
+      .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.82rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: color 0.3s;
+        position: relative;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--gold);
+        transition: width 0.3s;
+      }
+      .nav-links a:hover {
+        color: var(--gold);
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* ──── HERO ──── */
+      .hero {
+        position: relative;
+        z-index: 2;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 120px 24px 80px;
+      }
+      .hero-badge {
+        display: inline-block;
+        border: 1px solid rgba(201, 168, 76, 0.35);
+        padding: 6px 20px;
+        border-radius: 30px;
+        font-size: 0.72rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 32px;
+        animation: fadeInDown 0.8s ease both;
+      }
+      .hero h1 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(3rem, 8vw, 7rem);
+        font-weight: 300;
+        line-height: 1.05;
+        animation: fadeInUp 1s ease 0.2s both;
+        max-width: 900px;
+      }
+      .hero h1 .highlight {
+        background: linear-gradient(
+          135deg,
+          var(--accent-rose),
+          var(--accent-violet),
+          var(--accent-cyan)
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 700;
+      }
+      .hero-sub {
+        margin-top: 28px;
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        max-width: 580px;
+        animation: fadeInUp 1s ease 0.45s both;
+      }
+      .hero-cta {
+        margin-top: 48px;
+        animation: fadeInUp 1s ease 0.6s both;
+      }
+
+      /* ──── BUTTONS ──── */
+      .btn-primary {
+        display: inline-block;
+        padding: 15px 38px;
+        background: linear-gradient(135deg, var(--gold), #b8943e);
+        color: #1a1a22;
+        font-family: "Rajdhani", sans-serif;
+        font-weight: 600;
+        font-size: 0.82rem;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 30px rgba(201, 168, 76, 0.25);
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 40px rgba(201, 168, 76, 0.4);
+      }
+      .btn-ghost {
+        display: inline-block;
+        padding: 13px 32px;
+        border: 1px solid rgba(201, 168, 76, 0.4);
+        color: var(--gold);
+        font-family: "Rajdhani", sans-serif;
+        font-weight: 500;
+        font-size: 0.78rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-decoration: none;
+        border-radius: 50px;
+        transition: background 0.3s, color 0.3s;
+        cursor: pointer;
+        background: transparent;
+      }
+      .btn-ghost:hover {
+        background: rgba(201, 168, 76, 0.1);
+        color: var(--gold-light);
+      }
+
+      /* ──── FLOATING PARTICLES ──── */
+      .particle {
+        position: fixed;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 1;
+        animation: float linear infinite;
+        opacity: 0.35;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.35;
+        }
+        90% {
+          opacity: 0.35;
+        }
+        100% {
+          transform: translateY(-120px) rotate(720deg);
+          opacity: 0;
+        }
+      }
+
+      /* ──── SECTION TITLES ──── */
+      .section {
+        position: relative;
+        z-index: 2;
+        padding: 100px 24px;
+      }
+      .section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-label {
+        font-family: "Rajdhani", sans-serif;
+        font-size: 0.7rem;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--accent-cyan);
+        margin-bottom: 10px;
+      }
+      .section-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        font-weight: 300;
+        color: var(--text-primary);
+        margin-bottom: 14px;
+      }
+      .section-title .accent {
+        color: var(--gold);
+        font-weight: 600;
+      }
+      .section-desc {
+        color: var(--text-muted);
+        max-width: 600px;
+        margin-bottom: 50px;
+        font-size: 0.95rem;
+      }
+
+      /* ──── AD PLACEHOLDER (Google Ads compliant) ──── */
+      .ad-block {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px dashed rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.15);
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        min-height: 90px;
+        margin: 0 auto;
+      }
+      .ad-728 {
+        max-width: 728px;
+        width: 100%;
+      }
+      .ad-320 {
+        max-width: 320px;
+        width: 100%;
+        min-height: 100px;
+      }
+      .ad-responsive {
+        width: 100%;
+        max-width: 970px;
+        min-height: 90px;
+      }
+      .ad-section {
+        padding: 30px 24px;
+      }
+
+      /* ──── CATEGORY PILLS ──── */
+      .pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 50px;
+      }
+      .pill {
+        padding: 9px 22px;
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text-muted);
+        font-size: 0.78rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-family: "Rajdhani", sans-serif;
+        font-weight: 500;
+      }
+      .pill:hover,
+      .pill.active {
+        border-color: var(--gold);
+        background: rgba(201, 168, 76, 0.12);
+        color: var(--gold);
+      }
+
+      /* ──── CARDS GRID ──── */
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px;
+      }
+      .card {
+        background: var(--card-bg);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: transform 0.35s, border-color 0.35s, box-shadow 0.35s;
+        cursor: pointer;
+        position: relative;
+      }
+      .card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(201, 168, 76, 0.3);
+        box-shadow: 0 12px 50px rgba(0, 0, 0, 0.4);
+      }
+      .card-visual {
+        height: 180px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .card-visual .glow {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        filter: blur(40px);
+        opacity: 0.5;
+        position: absolute;
+      }
+      .card-icon {
+        font-size: 2.8rem;
+        position: relative;
+        z-index: 1;
+        filter: drop-shadow(0 0 20px currentColor);
+      }
+      .card-tag {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        background: rgba(10, 10, 15, 0.75);
+        backdrop-filter: blur(8px);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.65rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-weight: 600;
+        z-index: 2;
+      }
+      .card-body {
+        padding: 22px 24px 26px;
+      }
+      .card-body h3 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.45rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .card-body p {
+        color: var(--text-muted);
+        font-size: 0.88rem;
+        margin-bottom: 16px;
+        line-height: 1.55;
+      }
+      .card-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .card-price {
+        font-family: "Orbitron", sans-serif;
+        font-size: 0.72rem;
+        color: var(--accent-cyan);
+        letter-spacing: 1px;
+      }
+      .card-link {
+        font-size: 0.72rem;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s;
+      }
+      .card-link:hover {
+        color: var(--gold-light);
+      }
+
+      /* ──── COLOR THEMES FOR CARDS ──── */
+      .theme-rose .card-visual {
+        background: linear-gradient(
+          135deg,
+          rgba(224, 107, 138, 0.15),
+          rgba(154, 107, 255, 0.1)
+        );
+      }
+      .theme-rose .card-icon {
+        color: var(--accent-rose);
+      }
+      .theme-rose .card-tag {
+        color: var(--accent-rose);
+      }
+
+      .theme-gold .card-visual {
+        background: linear-gradient(
+          135deg,
+          rgba(201, 168, 76, 0.18),
+          rgba(224, 107, 138, 0.08)
+        );
+      }
+      .theme-gold .card-icon {
+        color: var(--gold);
+      }
+      .theme-gold .card-tag {
+        color: var(--gold);
+      }
+
+      .theme-cyan .card-visual {
+        background: linear-gradient(
+          135deg,
+          rgba(77, 217, 192, 0.15),
+          rgba(154, 107, 255, 0.08)
+        );
+      }
+      .theme-cyan .card-icon {
+        color: var(--accent-cyan);
+      }
+      .theme-cyan .card-tag {
+        color: var(--accent-cyan);
+      }
+
+      .theme-violet .card-visual {
+        background: linear-gradient(
+          135deg,
+          rgba(154, 107, 255, 0.18),
+          rgba(77, 217, 192, 0.08)
+        );
+      }
+      .theme-violet .card-icon {
+        color: var(--accent-violet);
+      }
+      .theme-violet .card-tag {
+        color: var(--accent-violet);
+      }
+
+      /* ──── FEATURED STRIP ──── */
+      .featured-strip {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 24px;
+        margin-bottom: 24px;
+      }
+      .featured-card {
+        background: var(--card-bg);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius);
+        overflow: hidden;
+        position: relative;
+      }
+      .featured-card .card-visual {
+        height: 240px;
+      }
+      .featured-card.side .card-visual {
+        height: 100%;
+        min-height: 240px;
+      }
+      .featured-card.side {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+      }
+      .featured-card.side .card-visual {
+        height: 100%;
+      }
+
+      /* ──── STATS BAR ──── */
+      .stats-bar {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: var(--radius);
+        overflow: hidden;
+        margin: 60px 0;
+      }
+      .stat-item {
+        background: var(--card-bg);
+        padding: 36px 20px;
+        text-align: center;
+      }
+      .stat-number {
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.8rem;
+        background: linear-gradient(135deg, var(--gold), var(--accent-cyan));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .stat-label {
+        color: var(--text-muted);
+        font-size: 0.72rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-top: 6px;
+      }
+
+      /* ──── ACCORDION (FAQ) ──── */
+      .faq-list {
+        max-width: 780px;
+      }
+      .faq-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        padding: 24px 0;
+      }
+      .faq-q {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        user-select: none;
+      }
+      .faq-q .icon {
+        font-size: 1.4rem;
+        color: var(--gold);
+        transition: transform 0.3s;
+      }
+      .faq-item.open .faq-q .icon {
+        transform: rotate(45deg);
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.3s;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+      .faq-item.open .faq-a {
+        max-height: 200px;
+        padding-top: 14px;
+      }
+
+      /* ──── NEWSLETTER ──── */
+      .newsletter-wrap {
+        background: linear-gradient(
+          135deg,
+          rgba(154, 107, 255, 0.12),
+          rgba(224, 107, 138, 0.1),
+          rgba(77, 217, 192, 0.08)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: var(--radius);
+        padding: 70px 40px;
+        text-align: center;
+      }
+      .newsletter-wrap h2 {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.2rem;
+        font-weight: 300;
+        margin-bottom: 12px;
+      }
+      .newsletter-wrap p {
+        color: var(--text-muted);
+        margin-bottom: 30px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 0.9rem;
+      }
+      .newsletter-form {
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 520px;
+        margin: 0 auto;
+      }
+      .newsletter-form input[type="email"] {
+        flex: 1;
+        min-width: 240px;
+        padding: 14px 22px;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-primary);
+        font-family: "Rajdhani", sans-serif;
+        font-size: 0.9rem;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+      .newsletter-form input[type="email"]:focus {
+        border-color: var(--gold);
+      }
+      .newsletter-form input::placeholder {
+        color: var(--text-muted);
+      }
+
+      /* ──── FOOTER ──── */
+      footer {
+        position: relative;
+        z-index: 2;
+        padding: 60px 24px 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        text-align: center;
+      }
+      .footer-logo {
+        font-family: "Orbitron", sans-serif;
+        font-size: 1.2rem;
+        letter-spacing: 5px;
+        background: linear-gradient(135deg, var(--gold), var(--gold-light));
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 16px;
+      }
+      footer p {
+        color: var(--text-muted);
+        font-size: 0.78rem;
+        line-height: 1.8;
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      .footer-links {
+        margin: 18px 0;
+        display: flex;
+        gap: 24px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .footer-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: color 0.3s;
+      }
+      .footer-links a:hover {
+        color: var(--gold);
+      }
+      .disclaimer {
+        margin-top: 28px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .disclaimer p {
+        font-size: 0.68rem !important;
+        color: rgba(255, 255, 255, 0.2) !important;
+      }
+
+      /* ──── ANIMATIONS ──── */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ──── SCROLLBAR PROGRESS ──── */
+      .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 0%;
+        background: linear-gradient(
+          90deg,
+          var(--accent-violet),
+          var(--accent-rose),
+          var(--gold),
+          var(--accent-cyan)
+        );
+        z-index: 9999;
+        transition: width 0.1s linear;
+      }
+
+      /* ──── RESPONSIVE ──── */
+      @media (max-width: 768px) {
+        nav {
+          padding: 14px 20px;
+        }
+        .nav-links {
+          display: none;
+        }
+        .featured-strip {
+          grid-template-columns: 1fr;
+        }
+        .featured-card.side {
+          grid-template-columns: 1fr;
+        }
+        .featured-card.side .card-visual {
+          height: 160px;
+        }
+        .stats-bar {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .newsletter-wrap {
+          padding: 40px 20px;
+        }
+      }
+      @media (max-width: 480px) {
+        .cards-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats-bar {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* ──── OA CARD HOVER ──── */
+      .card:hover .card-link {
+        text-shadow: 0 0 8px rgba(201, 168, 76, 0.5);
+      }
+      .oa-banner {
+        transition: box-shadow 0.4s;
+      }
+      .oa-banner:hover {
+        box-shadow: 0 0 40px rgba(201, 168, 76, 0.15);
+      }
+
+      /* ──── GLOW ORBS (decoration) ──── */
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        pointer-events: none;
+        opacity: 0.15;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Progress bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Ambient BG -->
+    <div class="ambient"></div>
+    <div class="noise"></div>
+
+    <!-- Particles -->
+    <div id="particlesContainer"></div>
+
+    <!-- NAV -->
+    <nav id="navbar">
+      <a href="#" class="logo">AURA</a>
+      <ul class="nav-links">
+        <li><a href="#classiques">Classiques</a></li>
+        <li><a href="#intemporels">Intemporels</a></li>
+        <li><a href="#niches">Niches</a></li>
+        <li><a href="#budget">Budget</a></li>
+        <li><a href="#inspirations">Inspirations</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+
+    <!-- ═══════════════ HERO ═══════════════ -->
+    <section class="hero">
+      <div class="hero-badge">✦ Guide Parfumerie 2025</div>
+      <h1>
+        Éveiller Votre<br /><span class="highlight">Signature Scent</span>
+      </h1>
+      <p class="hero-sub">
+        Le guide complet pour naviguer dans l'univers de la parfumerie — des
+        classiques intemporels aux créations niches, pour tous les budgets.
+      </p>
+      <div class="hero-cta">
+        <a href="#classiques" class="btn-primary">Explorer →</a>
+      </div>
+    </section>
+
+    <!-- ═══ AD BLOCK TOP ═══ -->
+    <div class="ad-section">
+      <div class="ad-block ad-responsive" id="adTopResponsive">
+        <!-- Google Ads: Remplacer par votre code ad.google.com -->
+        <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="auto" data-full-width-responsive="true"></ins> -->
+        Espace Publicité — Google Ads
+      </div>
+    </div>
+
+    <!-- ═══════════════ STATS ═══════════════ -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="stats-bar reveal">
+          <div class="stat-item">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">Parfums Analysés</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">15</div>
+            <div class="stat-label">Familles Olfactives</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Maisons Testées</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">12K</div>
+            <div class="stat-label">Lecteurs / Mois</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ CLASSIQUES ═══════════════ -->
+    <section class="section" id="classiques">
+      <div class="section-inner">
+        <div class="reveal">
+          <div class="section-label">// Classiques</div>
+          <h2 class="section-title">
+            Les <span class="accent">Parfums Classiques</span>
+          </h2>
+          <p class="section-desc">
+            Ces créations mythiques ont marqué l'histoire de la parfumerie. Ils
+            restent des valeurs sûres, des incontournables pour toute
+            collection.
+          </p>
+        </div>
+        <div class="cards-grid" id="classiquesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ═══ AD INLINE ═══ -->
+    <div class="ad-section">
+      <div class="ad-block ad-728" id="adInline728">
+        <!-- Google Ads: Slot Inline 728x90 -->
+        Espace Publicité — Google Ads
+      </div>
+    </div>
+
+    <!-- ═══════════════ INTEMPORELS ═══════════════ -->
+    <section class="section" id="intemporels">
+      <div class="section-inner">
+        <div class="reveal">
+          <div class="section-label">// Intemporels</div>
+          <h2 class="section-title">
+            Parfums <span class="accent">Intemporels</span>
+          </h2>
+          <p class="section-desc">
+            Ces parfums transcendent les modes et les saisons. Une fois adoptés,
+            ils deviennent votre compagnon pour la vie.
+          </p>
+        </div>
+        <div class="cards-grid" id="intemporelsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ═══ AD BLOCK MID ═══ -->
+    <div class="ad-section">
+      <div class="ad-block ad-responsive" id="adMidResponsive">
+        <!-- Google Ads: Slot Mid-page -->
+        Espace Publicité — Google Ads
+      </div>
+    </div>
+
+    <!-- ═══════════════ BUDGET ═══════════════ -->
+    <section class="section" id="budget">
+      <div class="section-inner">
+        <div class="reveal">
+          <div class="section-label">// Budget Friendly</div>
+          <h2 class="section-title">
+            Parfums <span class="accent">Pas Cher</span>
+          </h2>
+          <p class="section-desc">
+            La qualité n'est pas synonyme de prix. Ces pépites offrent une
+            expérience olfactive exceptionnelle sans vider votre portefeuille.
+          </p>
+        </div>
+        <div class="cards-grid" id="budgetGrid"></div>
+      </div>
+    </section>
+
+    <!-- ═══ AD BLOCK ═══ -->
+    <div class="ad-section">
+      <div class="ad-block ad-728" id="adBudget728">
+        Espace Publicité — Google Ads
+      </div>
+    </div>
+
+    <!-- ═══════════════ NICHES ═══════════════ -->
+    <section class="section" id="niches">
+      <div class="section-inner">
+        <div class="reveal">
+          <div class="section-label">// Niches</div>
+          <h2 class="section-title">
+            Parfums <span class="accent">Niche</span>
+          </h2>
+          <p class="section-desc">
+            Pour ceux qui cherchent l'unique. Ces créations indépendantes
+            sortent des sentiers battus et offrent des compositions audacieuses.
+          </p>
+        </div>
+        <div class="cards-grid" id="nichesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ═══ AD BLOCK ═══ -->
+    <div class="ad-section">
+      <div class="ad-block ad-responsive" id="adNiches">
+        Espace Publicité — Google Ads
+      </div>
+    </div>
+
+    <!-- ═══════════════ MAINSTREAM ═══════════════ -->
+    <section class="section" id="mainstream">
+      <div class="section-inner">
+        <div class="reveal">
+          <div class="section-label">// Mainstream</div>
+          <h2 class="section-title">
+            Parfums <span class="accent">Mainstream</span>
+          </h2>
+          <p class="section-desc">
+            Les parfums les plus populaires du marché, analysés et décortiqués.
+            Des valeurs fiables pour tous les occasions.
+          </p>
+        </div>
+        <div class="cards-grid" id="mainstreamGrid"></div>
+      </div>
+    </section>
+
+    <!-- ═══ AD BLOCK ═══ -->
+    <div class="ad-section">
+      <div class="ad-block ad-728" id="adMainstream">
+        Espace Publicité — Google Ads
+      </div>
+    </div>
+
+    <!-- ═══════════════ INSPIRATIONS ═══════════════ -->
+    <section class="section" id="inspirations">
+      <div class="section-inner">
+        <div class="reveal">
+          <div class="section-label">// Inspirations</div>
+          <h2 class="section-title">
+            Parfums <span class="accent">Inspiration</span>
+          </h2>
+          <p class="section-desc">
+            La maison
+            <strong style="color: var(--gold)">Olfactive Alchimie</strong>
+            propose des inspirations niche de haute qualité, à 25–33% de
+            concentration en extrait de parfum. Élaborés dans les meilleurs
+            laboratoires français, chaque flacon est testé face à l'original
+            avant sortie.
+          </p>
+        </div>
+        <!-- OA Brand Banner -->
+        <div
+          class="oa-banner reveal"
+          style="
+            background: linear-gradient(
+              135deg,
+              rgba(201, 168, 76, 0.12),
+              rgba(154, 107, 255, 0.1),
+              rgba(224, 107, 138, 0.08)
+            );
+            border: 1px solid rgba(201, 168, 76, 0.25);
+            border-radius: 18px;
+            padding: 32px 36px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            margin-bottom: 36px;
+            flex-wrap: wrap;
+          "
+        >
+          <div style="flex: 1; min-width: 220px">
+            <div
+              style="
+                font-family: 'Orbitron', sans-serif;
+                font-size: 1.1rem;
+                letter-spacing: 4px;
+                background: linear-gradient(
+                  135deg,
+                  var(--gold),
+                  var(--gold-light)
+                );
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                margin-bottom: 10px;
+              "
+            >
+              OLFACTIVE ALCHIMIE
+            </div>
+            <p
+              style="
+                color: var(--text-muted);
+                font-size: 0.88rem;
+                line-height: 1.6;
+                margin: 0;
+              "
+            >
+              Marque française créée par un passionné de parfums. Chaque
+              creation est élaborée en collaboration avec les meilleurs
+              laboratoires SuperClones, avec une concentration de
+              <strong style="color: var(--gold)">25 à 33%</strong> en extrait de
+              parfum. Aucun flacon ne quitte le labo sans avoir été testé face à
+              l'original.
+            </p>
+          </div>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap">
+            <a
+              href="https://olfactivealchimie.com/collections/les-inspirations"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              class="btn-primary"
+              style="font-size: 0.75rem; padding: 12px 28px"
+              >Visiter la Boutique →</a
+            >
+            <a
+              href="https://olfactivealchimie.com/products/pack-decouverte"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              class="btn-ghost"
+              style="font-size: 0.72rem; padding: 10px 22px"
+              >Pack Découverte — €35</a
+            >
+          </div>
+        </div>
+        <div class="cards-grid" id="inspirationsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ═══ AD BLOCK ═══ -->
+    <div class="ad-section">
+      <div class="ad-block ad-responsive" id="adInspirations">
+        Espace Publicité — Google Ads
+      </div>
+    </div>
+
+    <!-- ═══════════════ FAQ ═══════════════ -->
+    <section class="section" id="faq">
+      <div class="section-inner">
+        <div class="reveal">
+          <div class="section-label">// FAQ</div>
+          <h2 class="section-title">
+            Questions <span class="accent">Fréquentes</span>
+          </h2>
+          <p class="section-desc">
+            Tout ce que vous devez savoir sur la parfumerie.
+          </p>
+        </div>
+        <div class="faq-list" id="faqList"></div>
+      </div>
+    </section>
+
+    <!-- ═══ AD BLOCK ═══ -->
+    <div class="ad-section">
+      <div class="ad-block ad-728" id="adFaq">
+        Espace Publicité — Google Ads
+      </div>
+    </div>
+
+    <!-- ═══════════════ NEWSLETTER ═══════════════ -->
+    <section class="section">
+      <div class="section-inner">
+        <div class="newsletter-wrap reveal">
+          <h2>Restez dans la <span style="color: var(--gold)">Vapeur</span></h2>
+          <p>
+            Recevez chaque semaine les derniers conseils parfumerie, les
+            nouvelles sorties et des offres exclusives.
+          </p>
+          <div class="newsletter-form">
+            <input
+              type="email"
+              placeholder="votre@email.com"
+              aria-label="Votre adresse email"
+            />
+            <button class="btn-primary" onclick="event.preventDefault()">
+              S'abonner
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer>
+      <div class="footer-logo">AURA</div>
+      <div class="footer-links">
+        <a href="#">Accueil</a>
+        <a href="#">À Propos</a>
+        <a href="#">Contact</a>
+        <a href="#">Politique de Vie Privée</a>
+        <a href="#">Mentions Légales</a>
+      </div>
+      <p>
+        © 2025 AURA Parfumerie Guide. Tous droits réservés.<br />Site créé avec
+        passion pour les amateurs de parfums.
+      </p>
+      <div class="disclaimer">
+        <p>
+          Ce site contient des liens affiliés. En cliquant sur ces liens, vous
+          soutenez notre travail sans coût supplémentaire pour vous. Les avis
+          exprimés sont les nôtres et sont basés sur notre expérience
+          personnelle. Nous ne garantissons pas les résultats. Les prix indiqués
+          peuvent varier.
+        </p>
+      </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- JAVASCRIPT                                     -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <script>
+      // ──── DATA ────
+      const DATA = {
+        classiques: [
+          {
+            name: "Chanel N°5",
+            house: "Chanel",
+            desc: "Le parfum le plus iconique de l'histoire, une composition florale-aldéhyde intemporelle créée en 1921.",
+            price: "€120–160",
+            icon: "🌸",
+            theme: "theme-rose",
+            tag: "Iconique",
+          },
+          {
+            name: "Sauvage",
+            house: "Dior",
+            desc: "Une composition fraîche et intense qui a révolutionné le marché masculin avec ses notes d'ambre et de santal.",
+            price: "€80–120",
+            icon: "🏔️",
+            theme: "theme-cyan",
+            tag: "Bestseller",
+          },
+          {
+            name: "Opium",
+            house: "YSL",
+            desc: "Un parfum oriental mythique, un mélange enivrant d'épices, d'opium et de fleurs exotiques.",
+            price: "€90–130",
+            icon: "🪷",
+            theme: "theme-violet",
+            tag: "Légendaire",
+          },
+        ],
+        intemporels: [
+          {
+            name: "Davidoff Cool Water",
+            house: "Davidoff",
+            desc: "Une fragrance aquatique-herbacée qui reste une valeur absolue depuis des décennies. Fraîcheur inégalée.",
+            price: "€40–70",
+            icon: "💧",
+            theme: "theme-cyan",
+            tag: "Evergreen",
+          },
+          {
+            name: "Le Margiela Replica",
+            house: "Maison Margiela",
+            desc: "Une collection entière de parfums conceptuels qui réinventent l'olfaction moderne.",
+            price: "€100–140",
+            icon: "🫧",
+            theme: "theme-violet",
+            tag: "Conceptuel",
+          },
+          {
+            name: "Terre d'Hermès",
+            house: "Hermès",
+            desc: "Un accord bois-citrus-terre qui capture l'essence de la nature avec une élégance discrète.",
+            price: "€100–150",
+            icon: "🌳",
+            theme: "theme-gold",
+            tag: "Élégance",
+          },
+        ],
+        budget: [
+          {
+            name: "Versence Oud",
+            house: "Various",
+            desc: "Une gamme de parfums orientaux à prix mini. La qualité surprend vraiment pour ces tarifs.",
+            price: "€15–30",
+            icon: "💎",
+            theme: "theme-gold",
+            tag: "Pépite",
+          },
+          {
+            name: "Bvlgari Aqua",
+            house: "Bvlgari",
+            desc: "Frais et lumineux, ce parfum aquatique est accessible et dure raisonablement bien pour le prix.",
+            price: "€35–55",
+            icon: "🌊",
+            theme: "theme-cyan",
+            tag: "Rapport ★★★",
+          },
+          {
+            name: "Azzaro Wanted",
+            house: "Azzaro",
+            desc: "Une fragrance masculine séductrice avec des notes de cannelle et de cuir à un prix très correct.",
+            price: "€30–50",
+            icon: "🔥",
+            theme: "theme-rose",
+            tag: "Avis Excellent",
+          },
+        ],
+        niches: [
+          {
+            name: "Replica: By the Fireside",
+            house: "Maison Margiela",
+            desc: "Un parfum fumé et chaleureux qui crée une atmosphère cocooning avec ses notes de cheminée.",
+            price: "€120–160",
+            icon: "🕯️",
+            theme: "theme-violet",
+            tag: "Cult",
+          },
+          {
+            name: "Oud Smoke",
+            house: "Taif Al Oud",
+            desc: "Un oud intense et fumé, créé par une maison saoudienne avec une authenticité incomparable.",
+            price: "€80–150",
+            icon: "🌙",
+            theme: "theme-gold",
+            tag: "Rare",
+          },
+          {
+            name: "Rose Sospeso",
+            house: "Aquolina",
+            desc: "Une rose moderne et crémeuse qui offre une interprétation fresh et unique de la reine des fleurs.",
+            price: "€50–80",
+            icon: "🌹",
+            theme: "theme-rose",
+            tag: "Unique",
+          },
+        ],
+        mainstream: [
+          {
+            name: "Bleu de Chanel",
+            house: "Chanel",
+            desc: "Le parfum masculin le plus vendu au monde. Un accord bois-frais-épicé impeccablement dosé.",
+            price: "€80–120",
+            icon: "💨",
+            theme: "theme-cyan",
+            tag: "N°1 Mondial",
+          },
+          {
+            name: "Good Girl",
+            house: "Carolina Herrera",
+            desc: "Un parfum féminin gourmand avec des notes de vanille et de cacao, très séducteur.",
+            price: "€70–100",
+            icon: "👠",
+            theme: "theme-rose",
+            tag: "Populaire",
+          },
+          {
+            name: "Versace Dylan Blue",
+            house: "Versace",
+            desc: "Un accord fougère moderne avec des notes de citron, de cedre et de cuir. Très polyvalent.",
+            price: "€60–90",
+            icon: "⚡",
+            theme: "theme-violet",
+            tag: "Top Ventes",
+          },
+        ],
+        inspirations: [
+          {
+            name: "Sacred",
+            house: "Olfactive Alchimie",
+            desc: "Inspiré de Sacred Bond (Reinvented). Accord sucré-floral-fruité : framboise, mandarine, gardénia, jasmin, caramel, benjoin, santal. Tenue 8.5/10.",
+            price: "€64,90",
+            icon: "✨",
+            theme: "theme-gold",
+            tag: "OA — Sucré Floral",
+            url: "https://olfactivealchimie.com/products/sacred",
+          },
+          {
+            name: "Comme Personne",
+            house: "Olfactive Alchimie",
+            desc: "Inspiré de « Like n* One ». Accord fruité-floral : fruit de la passion, pêche, gingembre, monoï, jasmin, rhum, guimauve, Ambroxan. Sillage 8.5/10.",
+            price: "€64,90",
+            icon: "🌺",
+            theme: "theme-rose",
+            tag: "OA — Fruité Floral",
+            url: "https://olfactivealchimie.com/products/comme-personne",
+          },
+          {
+            name: "Danger Nocturne",
+            house: "Olfactive Alchimie",
+            desc: "Parfum gourmand & addictif aux notes d'amande. Composition sensuelle, suave avec une touche sucrée — élégant et intrigant.",
+            price: "€64,90",
+            icon: "🌙",
+            theme: "theme-violet",
+            tag: "OA — Gourmand",
+            url: "https://olfactivealchimie.com/products/danger-nocturne",
+          },
+          {
+            name: "Danger Absolu",
+            house: "Olfactive Alchimie",
+            desc: "Version extrême & intense de la ligne Danger. Composition profonde et enveloppante pour les soirées romantiques.",
+            price: "€64,90",
+            icon: "🔥",
+            theme: "theme-rose",
+            tag: "OA — Oriental",
+            url: "https://olfactivealchimie.com/products/danger-absolu-extreme",
+          },
+          {
+            name: "White Beast",
+            house: "Olfactive Alchimie",
+            desc: "Fragrance masculine lumineuse et puissante. Accord bois-épices enveloppé de fraîcheur — discret et magnétique.",
+            price: "€64,90",
+            icon: "🐺",
+            theme: "theme-cyan",
+            tag: "OA — Boisé Épicé",
+            url: "https://olfactivealchimie.com/products/white-beast",
+          },
+          {
+            name: "Escanor",
+            house: "Olfactive Alchimie",
+            desc: "Composition masculine intense — lavande, vanille, fève tonka, cannelle, ambre et bois. Puissant, séducteur, intemporel.",
+            price: "€64,90",
+            icon: "☀️",
+            theme: "theme-gold",
+            tag: "OA — Woody Spicy",
+            url: "https://olfactivealchimie.com/products/escanor",
+          },
+          {
+            name: "Cherry Moon",
+            house: "Olfactive Alchimie",
+            desc: "Une ode à la cerise et à la douceur nocturne. Accord fruité-gourmand lumineux, parfait pour les journées d'été.",
+            price: "€64,90",
+            icon: "🍒",
+            theme: "theme-rose",
+            tag: "OA — Fruité Gourmand",
+            url: "https://olfactivealchimie.com/products/cherry-moon",
+          },
+          {
+            name: "Douceur Lactée",
+            house: "Olfactive Alchimie",
+            desc: "Accord crémeux et laiteux d'une douceur enivrante. Notes de vanille, lait, tubéreuse — un parfum peau douce.",
+            price: "€64,90",
+            icon: "🥛",
+            theme: "theme-violet",
+            tag: "OA — Gourmand Laiteux",
+            url: "https://olfactivealchimie.com/products/douceur-lactee",
+          },
+          {
+            name: "Extrême Overdose",
+            house: "Olfactive Alchimie",
+            desc: "Version overdose intense d'un accord vanille-oriental. Le parfum pour celui qui veut être remarqué, sans compromis.",
+            price: "€64,90",
+            icon: "⚡",
+            theme: "theme-cyan",
+            tag: "OA — Oriental Intense",
+            url: "https://olfactivealchimie.com/products/exteme-overdose",
+          },
+          {
+            name: "Keela Pistachio",
+            house: "Olfactive Alchimie",
+            desc: "Composition gourmande originale autour de la pistache — douceur, chaleur et raffinement réunis en un seul sillage.",
+            price: "€64,90",
+            icon: "🍫",
+            theme: "theme-gold",
+            tag: "OA — Gourmand",
+            url: "https://olfactivealchimie.com/products/keela-pistachio",
+          },
+          {
+            name: "French Santal",
+            house: "Olfactive Alchimie",
+            desc: "Le santal vu à la française : accord bois-épices élégant, avec une chaleur crémeuse et une persistance longue durée.",
+            price: "€64,90",
+            icon: "🪵",
+            theme: "theme-violet",
+            tag: "OA — Boisé Crémeux",
+            url: "https://olfactivealchimie.com/products/santal-de-paname",
+          },
+          {
+            name: "Sun Dream",
+            house: "Olfactive Alchimie",
+            desc: "Accord ensoleillé, lumineux et aéré. La parfaite fragrance pour les journées dorées — frais, fruité et séduisant.",
+            price: "€64,90",
+            icon: "🌞",
+            theme: "theme-cyan",
+            tag: "OA — Frais Fruité",
+            url: "https://olfactivealchimie.com/products/sun-dream",
+          },
+          {
+            name: "Ambre Interdit",
+            house: "Olfactive Alchimie",
+            desc: "Un ambre profond, chaud, avec des facettes vanillées et sucrées. Fragrance mystérieuse et séductrice — aussi en échantillon.",
+            price: "À partir de €5,00",
+            icon: "🟡",
+            theme: "theme-gold",
+            tag: "OA — Oriental Ambre",
+            url: "https://olfactivealchimie.com/collections/les-inspirations/products/double-vanille-extreme-copie",
+          },
+        ],
+      };
+
+      const FAQ_DATA = [
+        {
+          q: "Comment choisir mon parfum ?",
+          a: "Commencez par identifier votre famille olfactive préférée (florale, orientale, boisée, fraîche). Visitez un parfumeur, testez sur votre peau, et attendez que le sillage se révèle avant de décider. Évitez de tester plus de 3 parfums à la fois.",
+        },
+        {
+          q: "Quelle est la différence entre EDP et EDT ?",
+          a: "L'EDP (Eau de Parfum) contient 15-20% de concentré et dure 6-8 heures. L'EDT (Eau de Toilette) contient 5-15% et dure 3-5 heures. L'EDP offre plus de tenue et de profondeur.",
+        },
+        {
+          q: "Comment faire durer un parfum plus longtemps ?",
+          a: "Appliquez sur les points de chaleur (poignets, cou, derrière les oreilles), sur une peau humide après la douche, et évitez de frotter. Vous pouvez aussi parfumer vos vêtements ou utiliser un parfum pour cheveux.",
+        },
+        {
+          q: "Les parfums d'inspiration sont-ils de bonne qualité ?",
+          a: "La qualité varie beaucoup selon le fabricant. Les maisons sérieuses utilisent des ingrédients de qualité et proposent une fixation correcte. Lisez les avis avant d'acheter et privilégiez les maisons réputées.",
+        },
+        {
+          q: "Comment stocker mes parfums ?",
+          a: "À l'abri de la lumière, dans un endroit frais et sec. Évitez la salle de bain (humidité) et les fenêtres (lumière UV). Une boîte fermée est idéale pour préserver les notes pendant des années.",
+        },
+      ];
+
+      // ──── RENDER CARDS ────
+      function renderCards(containerId, items) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        container.innerHTML = items
+          .map(
+            (item) => `
+    <article class="card ${item.theme} reveal" aria-label="Parfum: ${
+              item.name
+            }">
+      <div class="card-visual">
+        <div class="glow" style="background:currentColor;"></div>
+        <span class="card-icon">${item.icon}</span>
+        <span class="card-tag">${item.tag}</span>
+      </div>
+      <div class="card-body">
+        <h3>${item.name}</h3>
+        <p>${item.desc}</p>
+        <div class="card-meta">
+          <span class="card-price">${item.price}</span>
+          <a href="${item.url || "#"}" class="card-link" target="${
+              item.url ? "_blank" : "_self"
+            }" rel="${
+              item.url ? "noopener noreferrer nofollow" : ""
+            }" aria-label="Voir l'offre pour ${item.name}">Voir Offre →</a>
+        </div>
+      </div>
+    </article>
+  `
+          )
+          .join("");
+      }
+
+      // ──── RENDER FAQ ────
+      function renderFAQ() {
+        const list = document.getElementById("faqList");
+        if (!list) return;
+        list.innerHTML = FAQ_DATA.map(
+          (item, i) => `
+    <div class="faq-item" onclick="toggleFaq(${i})">
+      <div class="faq-q">
+        <span>${item.q}</span>
+        <span class="icon">+</span>
+      </div>
+      <div class="faq-a">${item.a}</div>
+    </div>
+  `
+        ).join("");
+      }
+
+      function toggleFaq(index) {
+        const items = document.querySelectorAll(".faq-item");
+        items.forEach((item, i) => {
+          if (i !== index) item.classList.remove("open");
+        });
+        items[index].classList.toggle("open");
+      }
+
+      // ──── PARTICLES ────
+      function createParticles() {
+        const container = document.getElementById("particlesContainer");
+        const colors = ["#c9a84c", "#e06b8a", "#9b6dff", "#4dd9c0"];
+        for (let i = 0; i < 18; i++) {
+          const p = document.createElement("div");
+          const size = Math.random() * 5 + 2;
+          p.className = "particle";
+          p.style.cssText = `
+      left: ${Math.random() * 100}%;
+      width: ${size}px; height: ${size}px;
+      background: ${colors[Math.floor(Math.random() * colors.length)]};
+      animation-duration: ${Math.random() * 12 + 8}s;
+      animation-delay: ${Math.random() * 6}s;
+    `;
+          container.appendChild(p);
+        }
+      }
+
+      // ──── REVEAL ON SCROLL ────
+      function checkReveal() {
+        document.querySelectorAll(".reveal").forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.88) el.classList.add("visible");
+        });
+      }
+
+      // ──── NAVBAR SCROLL ────
+      function handleNavScroll() {
+        document
+          .getElementById("navbar")
+          .classList.toggle("scrolled", window.scrollY > 60);
+      }
+
+      // ──── PROGRESS BAR ────
+      function updateProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        document.getElementById("progressBar").style.width =
+          (scrollTop / docHeight) * 100 + "%";
+      }
+
+      // ──── PILL FILTER (visual only demo) ────
+      document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("pill")) {
+          document
+            .querySelectorAll(".pill")
+            .forEach((p) => p.classList.remove("active"));
+          e.target.classList.add("active");
+        }
+      });
+
+      // ──── INIT ────
+      window.addEventListener("load", () => {
+        renderCards("classiquesGrid", DATA.classiques);
+        renderCards("intemporelsGrid", DATA.intemporels);
+        renderCards("budgetGrid", DATA.budget);
+        renderCards("nichesGrid", DATA.niches);
+        renderCards("mainstreamGrid", DATA.mainstream);
+        renderCards("inspirationsGrid", DATA.inspirations);
+        renderFAQ();
+        createParticles();
+        checkReveal();
+      });
+
+      window.addEventListener(
+        "scroll",
+        () => {
+          checkReveal();
+          handleNavScroll();
+          updateProgress();
+        },
+        { passive: true }
+      );
+    </script>
+  </body>
+</html>
